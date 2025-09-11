@@ -45,13 +45,50 @@ export default function AboutPage() {
                 </div>
             </section>
 
+            {/* Awards */}
+            <section>
+                <h2 className="text-3xl font-semibold text-center border-b-2 border-yellow-500 pb-2 mb-8">Our Awards</h2>
+                <div className="bg-white p-6 md:p-8 rounded-lg shadow-md">
+                    <ul className="space-y-6 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-12 md:gap-y-6">
+                        <li className="flex items-start gap-4">
+                            <span className="text-2xl text-yellow-500 mt-1">🏆</span>
+                            <div>
+                                <h4 className="font-bold text-lg text-gray-800">Two Chef Hats</h4>
+                                <p className="text-gray-600">The Age Good Food Guide, 2024</p>
+                            </div>
+                        </li>
+                        <li className="flex items-start gap-4">
+                            <span className="text-2xl text-yellow-500 mt-1">🏆</span>
+                            <div>
+                                <h4 className="font-bold text-lg text-gray-800">TripAdvisor Traveler's Choice</h4>
+                                <p className="text-gray-600">TripAdvisor, 2025</p>
+                            </div>
+                        </li>
+                        <li className="flex items-start gap-4">
+                            <span className="text-2xl text-yellow-500 mt-1">🏆</span>
+                            <div>
+                                <h4 className="font-bold text-lg text-gray-800">Best Contemporary Dining</h4>
+                                <p className="text-gray-600">Australian Good Food Guide (AGFG), 2023</p>
+                            </div>
+                        </li>
+                        <li className="flex items-start gap-4">
+                            <span className="text-2xl text-yellow-500 mt-1">🏆</span>
+                            <div>
+                                <h4 className="font-bold text-lg text-gray-800">Gold Medal for Service</h4>
+                                <p className="text-gray-600">Restaurant & Catering Awards, 2024</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
             {/* Mission & Chef */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-1 gap-12 mt-8">
                 {/* Mission */}
                 <div className="bg-white p-6 rounded-lg shadow-md">
                     <h3 className="text-2xl font-bold mb-2 text-black">Our Mission</h3>
                     <p className="text-gray-600 mt-2">
-                        To provide an unforgettable dining experience by combining creative cuisine with exceptional, warm hospitality. We are committed to using fresh, locally-sourced ingredients from right here in Sri Lanka.
+                        To provide an unforgettable dining experience by combining creative cuisine with exceptional, warm hospitality. We are committed to using fresh, locally-sourced ingredients from Victorian farmers and producers.
                     </p>
                 </div>
                 {/* Chef */}

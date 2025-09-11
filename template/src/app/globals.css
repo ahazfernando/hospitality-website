@@ -1,9 +1,7 @@
 @import "tailwindcss";
 @tailwind utilities;
 
-.hero-bg {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/hero-bg.png');
-}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
