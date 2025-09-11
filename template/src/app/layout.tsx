@@ -1,19 +1,11 @@
 import type { Metadata } from 'next';
-// Import the fonts from next/font
-import { Inter, Lora } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-// Configure the fonts
 const inter = Inter({
     subsets: ['latin'],
-    variable: '--font-inter', // Optional: if you want to use it as a CSS variable
-});
-
-const lora = Lora({
-    subsets: ['latin'],
-    variable: '--font-lora', // Optional
 });
 
 export const metadata: Metadata = {
@@ -28,7 +20,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-        <body className={`${inter.variable} ${lora.variable}`}>
+        <body className={inter.className}>
         <Navbar/>
         {children}
         <Footer/>

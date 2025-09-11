@@ -2,8 +2,15 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import { Button } from "@/components/ui/button";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
 
-// data
 const dealsData = [
     {
         alt: 'Pasta Perfection',
@@ -59,7 +66,6 @@ export default function HomePage() {
 
     return (
         <main className="flex-grow">
-            {/* Hero Section */}
             <section
                 className="relative flex min-h-[60vh] items-center justify-center bg-cover bg-center py-20 text-center text-white"
                 style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://placehold.co/1920x1080/1a1a1a/ffffff.png?text=The+Golden+Fork')` }}
@@ -70,33 +76,33 @@ export default function HomePage() {
                 </div>
             </section>
 
-            {/* Deals Section */}
             <section className="bg-[var(--background-white)] py-20">
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-4xl font-bold text-[var(--secondary-dark-charcoal)]">Deals</h2>
                     <div className="mt-12">
                         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                             {visibleDeals.map((deal) => (
-                                <div key={deal.title} className="flex w-full flex-col overflow-hidden rounded-lg bg-gradient-to-br from-gray-50 to-gray-200 shadow-lg">
+                                <Card key={deal.title} className="flex w-full flex-col overflow-hidden">
                                     <Image alt={deal.alt} className="h-56 w-full object-cover" src={deal.src} width={320} height={224} />
-                                    <div className="flex flex-grow flex-col p-6 text-left">
-                                        <p className="text-sm uppercase text-gray-500">{deal.category}</p>
-                                        <h3 className="mt-1 text-xl font-bold">{deal.title}</h3>
-                                        <p className="mt-2 flex-grow text-gray-600">{deal.description}</p>
+                                    <CardHeader>
+                                        <p className="text-sm uppercase text-muted-foreground">{deal.category}</p>
+                                        <CardTitle>{deal.title}</CardTitle>
+                                    </CardHeader>
+                                    <CardContent className="flex flex-grow flex-col">
+                                        <p className="flex-grow text-muted-foreground">{deal.description}</p>
                                         <p className="mt-4 text-2xl font-bold text-[var(--secondary-dark-charcoal)]">{deal.price}</p>
-                                    </div>
-                                </div>
+                                    </CardContent>
+                                </Card>
                             ))}
                         </div>
-                        {/* pagination dots */}
                         <div className="mt-8 flex justify-center space-x-2">
                             {[...Array(totalPages)].map((_, index) => (
-                                <button
+                                <Button
                                     key={index}
                                     onClick={() => setCurrentPage(index)}
-                                    className={`h-2 w-2 rounded-full transition-colors ${
-                                        currentPage === index ? 'bg-gray-800' : 'bg-gray-400 hover:bg-gray-600'
-                                    }`}
+                                    variant={currentPage === index ? 'default' : 'outline'}
+                                    size="icon"
+                                    className="h-2 w-2 rounded-full"
                                     aria-label={`Go to page ${index + 1}`}
                                 />
                             ))}
@@ -105,58 +111,67 @@ export default function HomePage() {
                 </div>
             </section>
 
-            {/* Popular Dishes */}
             <section className="bg-[var(--background-light-gray)] py-20">
                 <div className="container mx-auto px-4">
                     <h2 className="text-center text-4xl font-bold text-[var(--secondary-dark-charcoal)]">Popular Dishes</h2>
                     <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                        <div className="overflow-hidden rounded-lg bg-white shadow-md">
+                        <Card className="overflow-hidden">
                             <Image alt="Grilled Salmon" className="h-64 w-full object-cover" src="https://placehold.co/400x256/c7a157/ffffff.png?text=Grilled+Salmon" width={400} height={256} />
-                            <div className="p-6">
-                                <h3 className="text-xl font-bold">Grilled Salmon with Asparagus</h3>
-                                <p className="mt-2 text-gray-600">Freshly grilled salmon served with a side of tender asparagus spears.</p>
-                            </div>
-                        </div>
-                        <div className="overflow-hidden rounded-lg bg-white shadow-md">
+                            <CardHeader>
+                                <CardTitle>Grilled Salmon with Asparagus</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <CardDescription>Freshly grilled salmon served with a side of tender asparagus spears.</CardDescription>
+                            </CardContent>
+                        </Card>
+                        <Card className="overflow-hidden">
                             <Image alt="Margherita Pizza" className="h-64 w-full object-cover" src="https://placehold.co/400x256/d94343/ffffff.png?text=Pizza" width={400} height={256} />
-                            <div className="p-6">
-                                <h3 className="text-xl font-bold">Classic Margherita Pizza</h3>
-                                <p className="mt-2 text-gray-600">Traditional pizza with fresh mozzarella, basil, and a vibrant tomato sauce.</p>
-                            </div>
-                        </div>
-                        <div className="overflow-hidden rounded-lg bg-white shadow-md">
+                            <CardHeader>
+                                <CardTitle>Classic Margherita Pizza</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <CardDescription>Traditional pizza with fresh mozzarella, basil, and a vibrant tomato sauce.</CardDescription>
+                            </CardContent>
+                        </Card>
+                        <Card className="overflow-hidden">
                             <Image alt="Beef Tenderloin" className="h-64 w-full object-cover" src="https://placehold.co/400x256/1a1a1a/ffffff.png?text=Beef+Tenderloin" width={400} height={256} />
-                            <div className="p-6">
-                                <h3 className="text-xl font-bold">Beef Tenderloin with Red Wine Sauce</h3>
-                                <p className="mt-2 text-gray-600">Tender beef tenderloin with a rich and savory red wine reduction.</p>
-                            </div>
-                        </div>
+                            <CardHeader>
+                                <CardTitle>Beef Tenderloin with Red Wine Sauce</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <CardDescription>Tender beef tenderloin with a rich and savory red wine reduction.</CardDescription>
+                            </CardContent>
+                        </Card>
                     </div>
                 </div>
             </section>
 
-            {/* Testimonials */}
             <section className="bg-[var(--background-white)] py-20">
                 <div className="container mx-auto px-4">
                     <h2 className="text-center text-4xl font-bold text-[var(--secondary-dark-charcoal)]">From Our Customers</h2>
                     <div className="mt-12 grid gap-8 md:grid-cols-1 lg:grid-cols-3">
-                        <div className="rounded-lg border border-gray-200 bg-white p-8">
-                            <p className="italic text-gray-700">"The Golden Fork is a culinary gem! The food is exquisite, and the service is impeccable. A must-visit for any food lover."</p>
-                            <p className="mt-4 font-semibold text-[var(--primary-gold)]">- Sarah L.</p>
-                        </div>
-                        <div className="rounded-lg border border-gray-200 bg-white p-8">
-                            <p className="italic text-gray-700">"I had the most amazing dining experience at The Golden Fork. The ambiance is perfect, and the staff is incredibly friendly. Highly recommended!"</p>
-                            <p className="mt-4 font-semibold text-[var(--primary-gold)]">- Michael B.</p>
-                        </div>
-                        <div className="rounded-lg border border-gray-200 bg-white p-8">
-                            <p className="italic text-gray-700">"From the appetizers to the desserts, every dish was a masterpiece. The flavors were rich and complex, and the presentation was stunning."</p>
-                            <p className="mt-4 font-semibold text-[var(--primary-gold)]">- Emily R.</p>
-                        </div>
+                        <Card>
+                            <CardContent className="p-8">
+                                <p className="italic text-muted-foreground">"The Golden Fork is a culinary gem! The food is exquisite, and the service is impeccable. A must-visit for any food lover."</p>
+                                <p className="mt-4 font-semibold text-[var(--primary-gold)]">- Sarah L.</p>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardContent className="p-8">
+                                <p className="italic text-muted-foreground">"I had the most amazing dining experience at The Golden Fork. The ambiance is perfect, and the staff is incredibly friendly. Highly recommended!"</p>
+                                <p className="mt-4 font-semibold text-[var(--primary-gold)]">- Michael B.</p>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardContent className="p-8">
+                                <p className="italic text-muted-foreground">"From the appetizers to the desserts, every dish was a masterpiece. The flavors were rich and complex, and the presentation was stunning."</p>
+                                <p className="mt-4 font-semibold text-[var(--primary-gold)]">- Emily R.</p>
+                            </CardContent>
+                        </Card>
                     </div>
                 </div>
             </section>
 
-            {/* Visit Us */}
             <section className="bg-[var(--background-light-gray)] py-20">
                 <div className="container mx-auto px-4">
                     <h2 className="text-center text-4xl font-bold text-[var(--secondary-dark-charcoal)]">Visit Us</h2>
@@ -164,11 +179,11 @@ export default function HomePage() {
                         <div className="space-y-8">
                             <div>
                                 <h3 className="text-2xl font-bold">Opening Hours</h3>
-                                <p className="mt-2 text-gray-600">Monday - Sunday: 6:00 PM - 11:00 PM</p>
+                                <p className="mt-2 text-muted-foreground">Monday - Sunday: 6:00 PM - 11:00 PM</p>
                             </div>
                             <div>
                                 <h3 className="text-2xl font-bold">Address</h3>
-                                <p className="mt-2 text-gray-600">123 Middle Swan, Australia</p>
+                                <p className="mt-2 text-muted-foreground">123 Middle Swan, Western Australia</p>
                             </div>
                         </div>
                         <div className="overflow-hidden rounded-lg">
