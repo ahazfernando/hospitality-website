@@ -11,11 +11,11 @@ const Navbar = () => {
                     <Link href="/" className="text-gray-300 hover:text-white">
                         Home
                     </Link>
-                    <Link href="/menu" className="text-gray-300 hover:text-white">
-                        Menu
-                    </Link>
                     <Link href="/about" className="text-gray-300 hover:text-white">
                         About
+                    </Link>
+                    <Link href="/menu" className="text-gray-300 hover:text-white">
+                        Menu
                     </Link>
                 </div>
             </div>
