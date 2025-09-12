@@ -13,6 +13,7 @@ interface MenuItem {
     name: string;
     description: string;
     price: string;
+    image: string;
     tags?: string[];
 }
 
@@ -24,26 +25,27 @@ const chefRecommendation: MenuItem = {
     name: 'Truffle Risotto',
     description: 'Creamy Arborio rice with black truffle, Parmesan cheese, and a hint of wild mushroom. A true delicacy.',
     price: '$32',
-    tags: ['🌱', 'GF'],// 🌱: Vegetarian, GF: Gluten-Free
+    image: 'https://placehold.co/400x256/c7a157/ffffff.png?text=Truffle+Risotto',
+    tags: ['🌱', 'GF'],
 };
 
 const menuData: MenuCategory = {
     "Starters": [
-        { name: 'Bruschetta', description: 'Grilled bread with tomatoes, garlic, basil, and olive oil.', price: '$12', tags: ['🌱', 'V'] },
-        { name: 'Calamari Fritti', description: 'Lightly battered and fried squid, served with marinara sauce.', price: '$15' },
+        { name: 'Bruschetta', description: 'Grilled bread with tomatoes, garlic, basil, and olive oil.', price: '$12', image: 'https://placehold.co/400x192/e57373/ffffff.png?text=Bruschetta', tags: ['🌱', 'V'] },
+        { name: 'Calamari Fritti', description: 'Lightly battered and fried squid, served with marinara sauce.', price: '$15', image: 'https://placehold.co/400x192/fff176/000000.png?text=Calamari+Fritti' },
     ],
     "Main Courses": [
-        { name: 'Spaghetti Carbonara', description: 'Pasta with pancetta, eggs, pecorino cheese, and black pepper.', price: '$22' },
-        { name: 'Margherita Pizza', description: 'Classic pizza with tomato, mozzarella, and fresh basil.', price: '$18', tags: ['🌱'] },
-        { name: 'Grilled Salmon', description: 'Salmon fillet with roasted vegetables and lemon-dill sauce.', price: '$28', tags: ['GF'] },
+        { name: 'Spaghetti Carbonara', description: 'Pasta with pancetta, eggs, pecorino cheese, and black pepper.', price: '$22', image: 'https://placehold.co/400x192/ffd54f/ffffff.png?text=Carbonara' },
+        { name: 'Margherita Pizza', description: 'Classic pizza with tomato, mozzarella, and fresh basil.', price: '$18', image: 'https://placehold.co/400x192/a1887f/ffffff.png?text=Pizza', tags: ['🌱'] },
+        { name: 'Grilled Salmon', description: 'Salmon fillet with roasted vegetables and lemon-dill sauce.', price: '$28', image: 'https://placehold.co/400x192/ff8a65/ffffff.png?text=Salmon', tags: ['GF'] },
     ],
     "Desserts": [
-        { name: 'Tiramisu', description: 'Coffee-flavored Italian dessert.', price: '$10' },
-        { name: 'Panna Cotta', description: 'Sweetened cream thickened with gelatin and molded.', price: '$9', tags: ['GF'] },
+        { name: 'Tiramisu', description: 'Coffee-flavored Italian dessert.', price: '$10', image: 'https://placehold.co/400x192/795548/ffffff.png?text=Tiramisu' },
+        { name: 'Panna Cotta', description: 'Sweetened cream thickened with gelatin and molded.', price: '$9', image: 'https://placehold.co/400x192/f06292/ffffff.png?text=Panna+Cotta', tags: ['GF'] },
     ],
     "Drinks": [
-        { name: 'House Red Wine', description: 'A glass of our finest selection.', price: '$8' },
-        { name: 'Sparkling Water', description: 'Imported from the Italian Alps.', price: '$4' },
+        { name: 'House Red Wine', description: 'A glass of our finest selection.', price: '$8', image: 'https://placehold.co/400x192/b71c1c/ffffff.png?text=Wine' },
+        { name: 'Sparkling Water', description: 'Imported from the Italian Alps.', price: '$4', image: 'https://placehold.co/400x192/4fc3f7/ffffff.png?text=Water' },
     ],
 };
 
@@ -63,7 +65,7 @@ export default function MenuPage() {
                     <div className="flex flex-col md:flex-row items-center gap-8 p-6 md:p-8">
                         <div className="relative w-full md:w-1/3 h-64 rounded-lg overflow-hidden">
                             <Image
-                                src="https://placehold.co/400x256/c7a157/ffffff.png?text=Truffle+Risotto"
+                                src={chefRecommendation.image}
                                 alt={chefRecommendation.name}
                                 layout="fill"
                                 objectFit="cover"
@@ -89,6 +91,14 @@ export default function MenuPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {items.map((item) => (
                             <Card key={item.name}>
+                                <div className="relative h-48 w-full overflow-hidden rounded-t-lg">
+                                    <Image
+                                        src={item.image}
+                                        alt={item.name}
+                                        layout="fill"
+                                        objectFit="cover"
+                                    />
+                                </div>
                                 <CardHeader>
                                     <div className="flex justify-between items-start">
                                         <CardTitle className="flex flex-col gap-2">
