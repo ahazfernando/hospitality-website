@@ -140,8 +140,12 @@
     --background-light-gray: #f7f7f7;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: "Inter", sans-serif;
-    font-family: var(--font-sans);       
+    font-family: var(--font-sans);
   }
 }

@@ -15,7 +15,7 @@ export const chefRecommendation: MenuItem = {
     description: 'Creamy Arborio rice with black truffle, Parmesan cheese, and a hint of wild mushroom. A true delicacy.',
     price: '$32',
     image: 'https://images.unsplash.com/photo-1476124369491-e7addf5db371?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-    tags: ['🌱', 'GF'],
+    tags: ['Italian', 'Most Popular'],
 };
 
 export const menuData: MenuCategory = {
