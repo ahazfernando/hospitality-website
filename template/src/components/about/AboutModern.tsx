@@ -97,7 +97,7 @@ export default function AboutModern() {
 
                     {/* Ambiance Section Header */}
                     <div className="col-span-12 text-center mb-16">
-                        <Badge variant="outline" className="mb-6 text-xs uppercase tracking-widest border-stone-200 text-stone-700">
+                        <Badge variant="outline" className=" p-2 px-4 mb-6 rounded-full text-xs uppercase tracking-widest border-stone-200 text-stone-700">
                             Experience Our Space
                         </Badge>
                         <h2 className="text-5xl font-bold text-slate-900 mb-4">
@@ -109,11 +109,9 @@ export default function AboutModern() {
                             </p>
                         </div>
                     </div>
-                    
-                    {/* Ambiance Images Grid */}
                     {ambianceImages.slice(1).map((image, index) => (
                         <div key={image.src} className="col-span-12 md:col-span-6 xl:col-span-4 mb-8">
-                            <Card className="group border-0 shadow-xl hover:shadow-3xl transition-all duration-700 overflow-hidden bg-white/60 backdrop-blur-sm hover:-translate-y-2 h-full">
+                            <Card className="group border-0 shadow-xl hover:shadow-3xl transition-all duration-700 overflow-hidden bg-white/60 backdrop-blur-sm hover:-translate-y-2 h-full p-0">
                                 <div className="relative h-80 overflow-hidden">
                                     <Image
                                         src={image.src}
@@ -145,16 +143,17 @@ export default function AboutModern() {
                     ))}
 
                     {/* Awards Section */}
-                    <div className="col-span-12 mb-24">
-                        <Card className="border-0 shadow-2xl bg-gradient-to-br from-white/70 to-stone-50/30 backdrop-blur-xl overflow-hidden">
+                    <div className="col-span-12 mb-24 mt-24">
+                        <div className="relative">
                             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-stone-200/20 to-transparent rounded-full -translate-y-32 translate-x-32"></div>
-                            <CardHeader className="text-center pb-8 pt-16 relative z-10">
+                        
+                            <div className="text-center pb-12 relative z-10">
                                 <Badge variant="outline" className="mb-6 text-xs uppercase tracking-widest border-stone-200 text-stone-700 mx-auto w-fit">
                                     Recognition & Excellence
                                 </Badge>
-                                <CardTitle className="text-5xl font-bold text-slate-900 mb-4">
+                                <h2 className="text-5xl font-bold text-slate-900 mb-4">
                                     Industry <span className="text-stone-700">Recognition</span>
-                                </CardTitle>
+                                </h2>
                                 <div className="grid grid-cols-12">
                                     <div className="col-span-12 lg:col-span-8 lg:col-start-3">
                                         <p className="text-lg text-stone-600">
@@ -162,37 +161,79 @@ export default function AboutModern() {
                                         </p>
                                     </div>
                                 </div>
-                            </CardHeader>
-                            <CardContent className="px-4 md:px-16 pb-16">
-                                <div className="grid grid-cols-12 gap-6">
-                                    {awards.map((award, index) => (
-                                        <div key={index} className="col-span-12 md:col-span-6">
-                                            <div className="group relative overflow-hidden h-full">
-                                                <div className="flex items-center gap-6 p-8 rounded-2xl bg-white/50 backdrop-blur-sm hover:bg-white/70 transition-all duration-500 border border-white/40 hover:border-stone-200/50 hover:shadow-lg hover:-translate-y-1 h-full">
-                                                    <div className="relative">
-                                                        <AwardIcon/>
-                                                        <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center">
-                                                            <span className="text-white text-xs">✓</span>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex-1">
-                                                        <h3 className="font-bold text-xl text-slate-900 mb-2 group-hover:text-stone-700 transition-colors">
-                                                            {award.title}
-                                                        </h3>
-                                                        <p className="text-stone-600 text-sm mb-2">
-                                                            {award.organization}
-                                                        </p>
-                                                        <Badge variant="secondary" className="text-xs bg-stone-100 text-stone-700">
-                                                            {award.year}
-                                                        </Badge>
-                                                    </div>
-                                                </div>
+                            </div>
+                            <div className="relative z-10">
+                                <div className="grid grid-cols-12 gap-8">
+                                    <div className="col-span-12 lg:col-span-7">
+                                        <div className="grid grid-cols-2 grid-rows-3 gap-4 h-[600px]">
+                                            <div className="col-span-1 row-span-2 relative overflow-hidden rounded-2xl group shadow-xl">
+                                                <Image
+                                                    src="/industryrecognition/industrygrid1.jpg"
+                                                    alt="Industry Recognition"
+                                                    fill
+                                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
+                                            </div>
+                                            <div className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl group shadow-xl">
+                                                <Image
+                                                    src="/industryrecognition/industrygrid2.jpg"
+                                                    alt="Culinary Excellence"
+                                                    fill
+                                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
+                                            </div>
+                                            <div className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl group shadow-xl">
+                                                <Image
+                                                    src="/industryrecognition/industrygrid3.jpg"
+                                                    alt="Award Ceremony"
+                                                    fill
+                                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
+                                            </div>
+                                            <div className="col-span-2 row-span-1 relative overflow-hidden rounded-2xl group shadow-xl">
+                                                <Image
+                                                    src="/industryrecognition/industrygrid4.jpg"
+                                                    alt="Restaurant Recognition"
+                                                    fill
+                                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
                                             </div>
                                         </div>
-                                    ))}
+                                    </div>
+                                    <div className="col-span-12 lg:col-span-5">
+                                        <div className="flex flex-col gap-6">
+                                            {awards.map((award, index) => (
+                                                <div key={index} className="group relative overflow-hidden">
+                                                    <div className="flex items-center gap-6 p-6 rounded-2xl bg-white/50 backdrop-blur-sm hover:bg-white/70 transition-all duration-500 border border-white/40 hover:border-stone-200/50 hover:shadow-lg hover:-translate-y-1">
+                                                        <div className="relative flex-shrink-0">
+                                                            <AwardIcon className="w-8 h-8 text-stone-700" />
+                                                            <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center">
+                                                                <span className="text-white text-xs">✓</span>
+                                                            </div>
+                                                        </div>
+                                                        <div className="flex-1">
+                                                            <h3 className="font-bold text-lg text-slate-900 mb-1 group-hover:text-stone-700 transition-colors">
+                                                                {award.title}
+                                                            </h3>
+                                                            <p className="text-stone-600 text-sm mb-2">
+                                                                {award.organization}
+                                                            </p>
+                                                            <Badge variant="secondary" className="text-xs bg-stone-100 text-stone-700">
+                                                                {award.year}
+                                                            </Badge>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </div>
-                            </CardContent>
-                        </Card>
+                            </div>
+                        </div>
                     </div>
 
                     {/* Mission & Chef Cards */}
