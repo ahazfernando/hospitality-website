@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function AboutModern() {
     return (
-        <div className="min-h-screen bg-gradient-to-br from-stone-50 via-neutral-50 to-slate-50 scroll-smooth">
+        <div className="min-h-screen bg-gradient-to-br from-stone-50 via-neutral-50 to-slate-50 scroll-smooth overflow-x-hidden">
             <div className="absolute inset-0 bg-grid-pattern opacity-3"></div>
             
             {/* Hero Section */}
@@ -48,8 +48,8 @@ export default function AboutModern() {
                     <div className="col-span-12 mb-24">
                         <Card className="border-0 shadow-2xl bg-white/70 backdrop-blur-xl overflow-hidden group hover:shadow-3xl transition-all duration-700">
                             <CardContent className="p-0">
-                                <div className="grid grid-cols-12 min-h-[600px]">
-                                    <div className="col-span-12 lg:col-span-6 p-6 md:p-12 lg:p-16 flex flex-col justify-center relative">
+                                <div className="flex flex-col lg:flex-row items-stretch min-h-[600px]">
+                                    <div className="w-full lg:w-1/2 p-6 md:p-12 lg:p-16 flex flex-col justify-center relative">
                                         <div className="absolute top-8 left-8 w-12 h-12 bg-gradient-to-br from-stone-300 to-slate-400 rounded-full opacity-15"></div>
                                         <div className="space-y-8">
                                             <div className="space-y-4">
@@ -74,7 +74,7 @@ export default function AboutModern() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-span-12 lg:col-span-6 relative p-4">
+                                    <div className="w-full lg:w-1/2 relative overflow-hidden h-full min-h-[300px] lg:min-h-[600px]">
                                         <Image
                                             src={ambianceImages[0].src}
                                             alt={ambianceImages[0].alt}
@@ -236,37 +236,64 @@ export default function AboutModern() {
                         </div>
                     </div>
 
-                    {/* Mission & Chef Cards */}
+{/* Mission & Chef Cards */}
                     <div className="col-span-12 lg:col-span-6 mb-8 lg:mb-0">
-                        <Card className="group border-0 shadow-xl bg-gradient-to-br from-white/70 to-slate-50/20 backdrop-blur-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 overflow-hidden h-full">
-                            <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-slate-200/20 to-transparent rounded-full -translate-x-16 -translate-y-16"></div>
-                            <CardHeader className="pb-6 relative z-10">
-                                <Badge variant="secondary" className="mb-4 text-xs uppercase tracking-widest w-fit bg-slate-100 text-slate-700">
-                                    Our Purpose
+                        <Card className="group border-0 shadow-xl bg-white backdrop-blur-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 overflow-hidden h-full relative">
+                            {/* Image positioned behind the card, extending to the right */}
+                            <div className="hidden md:block absolute top-1/2 -translate-y-1/2 right-0 w-40 h-40 md:w-56 md:h-56 lg:w-80 lg:h-80 xl:w-96 xl:h-96 pointer-events-none z-0 transform translate-x-6 md:translate-x-10 lg:translate-x-14 xl:translate-x-16">
+                                <div className="relative w-full h-full">
+                                    <Image
+                                        src="/aboutus/Pistachio.png"
+                                        alt="Pistachio Dessert"
+                                        fill
+                                        className="object-contain group-hover:scale-105 transition-transform duration-700"
+                                    />
+                                </div>
+                            </div>
+                            
+                            <CardHeader className="pb-4 relative z-20 pr-6">
+                                <Badge variant="secondary" className="mb-4 text-xs uppercase tracking-widest w-fit bg-stone-100 text-stone-700">
+                                    The Best
                                 </Badge>
                                 <CardTitle className="text-3xl font-bold text-slate-900">
                                     Our <span className="text-stone-700">Mission</span>
                                 </CardTitle>
-                                <div className="w-16 h-1 bg-gradient-to-r from-slate-500 to-stone-400 rounded-full"></div>
+                                <div className="w-16 h-1 bg-gradient-to-r from-stone-500 to-slate-400 rounded-full"></div>
                             </CardHeader>
-                            <CardContent className="px-6 pb-10">
-                                <p className="text-stone-600 leading-relaxed text-lg font-light">
+                            <CardContent className="px-6 pb-10 relative z-20 pr-6">
+                                <p className="text-slate-900 leading-relaxed text-base mb-8 max-w-xs">
                                     {aboutContent.mission}
                                 </p>
-                                <div className="mt-6 flex items-center gap-3">
-                                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-slate-400 to-stone-500 flex items-center justify-center">
-                                        <Target/>
+                                <div className="flex items-start gap-3 max-w-[55%]">
+                                    <div className="mt-1 flex-shrink-0">
+                                        <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                                        </svg>
                                     </div>
-                                    <span className="text-sm text-stone-600 font-medium">Australian Excellence</span>
+                                    <div>
+                                        <p className="text-sm text-slate-700 font-normal">Get the real</p>
+                                        <p className="text-base text-slate-900 font-bold">Australian Excellence</p>
+                                    </div>
                                 </div>
                             </CardContent>
                         </Card>
                     </div>
                     
-                    <div className="col-span-12 lg:col-span-6">
-                        <Card className="group border-0 shadow-xl bg-gradient-to-br from-white/70 to-stone-50/20 backdrop-blur-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 overflow-hidden h-full">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-stone-200/20 to-transparent rounded-full translate-x-16 -translate-y-16"></div>
-                            <CardHeader className="pb-6 relative z-10">
+                    <div className="col-span-12 lg:col-span-6 mb-8 lg:mb-0">
+                        <Card className="group border-0 shadow-xl bg-white backdrop-blur-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 overflow-hidden h-full relative">
+                            {/* Image positioned behind the card, extending to the right */}
+                            <div className="hidden md:block absolute top-1/2 -translate-y-1/2 right-0 w-40 h-40 md:w-56 md:h-56 lg:w-80 lg:h-80 xl:w-96 xl:h-96 pointer-events-none z-0 transform translate-x-6 md:translate-x-10 lg:translate-x-14 xl:translate-x-16">
+                                <div className="relative w-full h-full">
+                                    <Image
+                                        src="/aboutus/chefalex.png"
+                                        alt="Chef Alex"
+                                        fill
+                                        className="object-contain group-hover:scale-105 transition-transform duration-700"
+                                    />
+                                </div>
+                            </div>
+
+                            <CardHeader className="pb-4 relative z-20 pr-6">
                                 <Badge variant="secondary" className="mb-4 text-xs uppercase tracking-widest w-fit bg-stone-100 text-stone-700">
                                     Executive Leadership
                                 </Badge>
@@ -276,7 +303,7 @@ export default function AboutModern() {
                                 <div className="w-16 h-1 bg-gradient-to-r from-stone-500 to-slate-400 rounded-full"></div>
                             </CardHeader>
                             <CardContent className="px-6 pb-10">
-                                <p className="text-stone-600 leading-relaxed text-lg font-light">
+                                <p className="text-slate-900 leading-relaxed text-base mb-8 max-w-sm">
                                     {aboutContent.chef}
                                 </p>
                                 <div className="mt-6 flex items-center gap-3">

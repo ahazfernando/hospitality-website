@@ -58,6 +58,6 @@ export const awards: Award[] = [
 
 export const aboutContent = {
   story: "Founded in 2024 in one of Melbourne's vibrant laneways, The Golden Fork began as a humble dream to blend Victoria's world-class produce with classic international dishes. We wanted to create a warm, inviting space where every meal tells a story and brings people together.",
-  mission: "To provide an unforgettable dining experience by combining creative cuisine with exceptional, warm hospitality. We are committed to using fresh, locally-sourced ingredients from Victoria's renowned food regions and supporting Australian producers.",
-  chef: "With over 15 years of experience across Melbourne's finest restaurants, Chef Alex Chen brings a unique blend of classic techniques and modern Australian innovation to The Golden Fork, celebrating the exceptional quality of Victorian produce."
+  mission: "We create memorable dining experiences with inventive cuisine and warm hospitality, using fresh, locally-sourced ingredients and supporting Australian producers.",
+  chef: "With 15+ years in Melbourne’s top restaurants, Chef Alex Chen blends classic technique with modern Australian innovation, showcasing Victoria’s finest produce at The Golden Fork"
 };
