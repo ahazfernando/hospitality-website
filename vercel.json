@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd template && npm run build",
+  "outputDirectory": "template/.next",
+  "installCommand": "cd template && npm install"
+}
+
